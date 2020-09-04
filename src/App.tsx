@@ -5,6 +5,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 // components
 import Navbar from './components/navbar/navbar';
 import LoginTest from './components/Forms/loginTest/loginTest';
+import SignupForm from './components/Forms/SignupForm/SignupForm';
 
 const theme = createMuiTheme({
 	palette: {
@@ -29,7 +30,7 @@ function App() {
 			<div className="App">
 				<Navbar cool={10} />
 				<div className="content">
-					<LoginTest />
+					<SignupForm />
 				</div>
 			</div>
 		</ThemeProvider>
