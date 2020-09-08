@@ -6,12 +6,17 @@ import * as Yup from 'yup';
 // components
 import FormikField from '../FormikField/FormikField';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
+
+// services
+import userService from '../../../services/security/userService'
 
 const Div = styled.div`
     background: #223767;
     border-radius: 10px;
     width: 500px;
-    padding 50px;
+	padding 50px;
+	margin: 3rem;
 	color: white;
 	display: flex;
 	flex-direction: column;
@@ -20,29 +25,30 @@ const Div = styled.div`
 
 	h1 {
 		color: #527cc9;
+		margin-right: auto;
 	}
 `;
 
 // Yup schema for input validation
 const SigninSchema = Yup.object().shape({
-	email: Yup.string().required('This field is required!').email('Must be a valid email!'),
+	username: Yup.string().required('This field is required!').email('Must be a valid email!'),
 	password: Yup.string().required('This field is required').min(8, 'Must be at least 8 character!')
 });
 
 interface FormValues {
-	email: string;
+	username: string;
 	password: string;
 }
 
 const initialValues: FormValues = {
-	email: '',
+	username: '',
 	password: ''
 };
 
 const LoginTest: React.FC = () => {
 	// values object automatically tracks input value state
 	const handleSubmit = (values: FormValues): void => {
-		alert(JSON.stringify(values));
+		userService.login(values);
 	};
 
 	return (
@@ -57,7 +63,7 @@ const LoginTest: React.FC = () => {
 			>
 				{({ isValid, dirty }) => (
 					<Form>
-						<FormikField label="Email" name="email" />
+						<FormikField label="Email" name="username" />
 						<FormikField label="Password" name="password" type="password" />
 						<Button variant="contained" disabled={!isValid || !dirty} color="primary" type="submit">
 							Submit

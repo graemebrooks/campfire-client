@@ -11,16 +11,22 @@ import Button from '@material-ui/core/Button';
 const Div = styled.div`
     background: #223767;
     border-radius: 10px;
-    width: 500px;
+	width: 500px;
+	margin: 3rem;
     padding 50px;
 	color: white;
 	display: flex;
 	flex-direction: column;
-	justify-content: start;
+	justify-content: flex-start;
 	box-shadow: 0 0 30px rgba(0,0,0,0.15);
 
 	h1 {
 		color: #527cc9;
+		margin-right: auto;
+	}
+	
+	button {
+		margin: 0.5rem;
 	}
 `;
 

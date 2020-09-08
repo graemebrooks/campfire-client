@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { Field, ErrorMessage } from 'formik';
 
 import TextField from '@material-ui/core/TextField';
 

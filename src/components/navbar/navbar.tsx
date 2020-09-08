@@ -1,12 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Nav = styled.div`
-	background: #223767;
-	height: 4rem;
+// component imports
+import { Link } from 'react-router-dom';
 
-	p {
-		margin: 0;
+const Nav = styled.div`
+	.nav {
+		width: 100vw;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.nav-link {
+		color: #527cc9;
+		text-decoration: none;
+	}
+
+	.nav-link:hover {
+		color: white;
+		text-decoration: none;
 	}
 `;
 
@@ -16,8 +28,22 @@ type navProps = {
 
 function Navbar(navProps: navProps) {
 	return (
-		<Nav>
-			<p>Im the Navbar! Number = {navProps.cool}</p>
+		<Nav className="nav">
+			<a>
+				<Link className="nav-link" to="/">
+					Home
+				</Link>
+			</a>
+			<a>
+				<Link className="nav-link" to="/movies">
+					Movies
+				</Link>
+			</a>
+			<a>
+				<Link className="nav-link" to="/login">
+					Login
+				</Link>
+			</a>
 		</Nav>
 	);
 }

@@ -4,8 +4,10 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 // components
 import Navbar from './components/navbar/navbar';
-import LoginTest from './components/Forms/loginTest/loginTest';
-import SignupForm from './components/Forms/SignupForm/SignupForm';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import HomePage from './components/Pages/HomePage/HomePage';
+import MoviesPage from './components/Pages/MoviesPage/MoviesPage';
+import LoginPage from './components/Pages/LoginPage/LoginPage';
 
 const theme = createMuiTheme({
 	palette: {
@@ -16,7 +18,7 @@ const theme = createMuiTheme({
 			main: '#ea8f00'
 		},
 		secondary: {
-			main: '#FFFFFF',
+			main: '#223767',
 			light: '#FFFFFF',
 			dark: '#FFFFFF',
 			contrastText: '#fff'
@@ -26,14 +28,24 @@ const theme = createMuiTheme({
 
 function App() {
 	return (
-		<ThemeProvider theme={theme}>
-			<div className="App">
-				<Navbar cool={10} />
-				<div className="content">
-					<SignupForm />
-				</div>
-			</div>
-		</ThemeProvider>
+		<div className="App">
+			<ThemeProvider theme={theme}>
+				<Router>
+					<Navbar cool={10} />
+					<Switch>
+						<Route path="/movies">
+							<MoviesPage />
+						</Route>
+						<Route path="/login">
+							<LoginPage />
+						</Route>
+						<Route path="/">
+							<HomePage />
+						</Route>
+					</Switch>
+				</Router>
+			</ThemeProvider>
+		</div>
 	);
 }
 
