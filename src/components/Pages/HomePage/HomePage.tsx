@@ -4,6 +4,9 @@ import styled from 'styled-components';
 // component imports
 import SignupForm from '../../Forms/SignupForm/SignupForm';
 
+// services
+import userService from '../../../services/security/userService';
+
 const Div = styled.div`
 	display: flex;
 

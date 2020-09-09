@@ -2,9 +2,9 @@ const removeToken = (): void => {
 	localStorage.removeItem('token');
 };
 
-const getUserFromToken = () => {
+const getUserFromToken = (): string | null => {
 	const token = getToken();
-	return token && JSON.parse(atob(token.split('.')[1])); // return user??
+	return token && JSON.parse(atob(token.split('.')[1])).sub;
 };
 
 const getToken = (): string | null => {
