@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
 // services
-import userService from '../../../services/security/userService'
+import userService from '../../../services/security/userService';
 
 const Div = styled.div`
     background: #223767;
