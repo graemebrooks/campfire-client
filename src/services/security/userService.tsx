@@ -1,7 +1,7 @@
 import axios from 'axios';
 import tokenService from './tokenService';
 
-const BASE_URL: string = '/api/user/';
+const BASE_URL: string = 'http://localhost:8080/api/user/';
 
 // login functionality ------------------------------------------------------------------
 
@@ -10,9 +10,9 @@ interface LoginValues {
 	password: string;
 }
 
-const login = (creds: LoginValues): void => {
+const login = (creds: LoginValues): Boolean => {
 	axios
-		.post('http://localhost:8080/api/user/authenticate', creds, {
+		.post(`${BASE_URL}authenticate`, creds, {
 			headers: { 'content-type': 'application/json' }
 		})
 		.then((response) => {
@@ -25,6 +25,7 @@ const login = (creds: LoginValues): void => {
 		.catch((error) => {
 			throw new Error('Bad Credentials!');
 		});
+	return true;
 };
 
 // Logout functionality ---------------------------------------------------------

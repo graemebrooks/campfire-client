@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
 
 // component imports
 import MovieSearchDropdown from '../MovieSearch/movieSearchDropdown';
@@ -12,6 +10,20 @@ import TMDBService from '../../services/TMDBService';
 const Div = styled.div`
 	display: flex;
 	flex-direction: column;
+	input {
+		width: 20rem;
+		background-color: #161717;
+		height: 2.5rem;
+		padding: 0.5rem;
+		border-radius: 10px;
+
+		color: white;
+
+		&:focus {
+			background-color: #f5f5f5;
+			color: #000000;
+		}
+	}
 	p {
 		margin-top: 2rem;
 	}

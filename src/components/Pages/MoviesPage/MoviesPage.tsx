@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // component imports
-import SignupForm from '../../Forms/SignupForm/SignupForm';
+import MovieSearch from '../../MovieSearch/movieSearch';
 
 const Div = styled.div`
 	display: flex;
@@ -19,8 +19,8 @@ const Div = styled.div`
 function MoviesPage() {
 	return (
 		<Div>
-			<SignupForm />
 			<h1 className="title">Movies Page</h1>
+			<MovieSearch />
 		</Div>
 	);
 }

@@ -32,17 +32,19 @@ function App() {
 			<ThemeProvider theme={theme}>
 				<Router>
 					<Navbar cool={10} />
-					<Switch>
-						<Route path="/movies">
-							<MoviesPage />
-						</Route>
-						<Route path="/login">
-							<LoginPage />
-						</Route>
-						<Route path="/">
-							<HomePage />
-						</Route>
-					</Switch>
+					<div className="content">
+						<Switch>
+							<Route path="/movies">
+								<MoviesPage />
+							</Route>
+							<Route path="/login">
+								<LoginPage />
+							</Route>
+							<Route path="/">
+								<HomePage />
+							</Route>
+						</Switch>
+					</div>
 				</Router>
 			</ThemeProvider>
 		</div>

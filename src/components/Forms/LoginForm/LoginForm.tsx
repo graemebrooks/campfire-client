@@ -6,22 +6,23 @@ import * as Yup from 'yup';
 // components
 import FormikField from '../FormikField/FormikField';
 import Button from '@material-ui/core/Button';
-import axios from 'axios';
 
 // services
 import userService from '../../../services/security/userService';
+import { useDispatch } from 'react-redux';
+import { useHistory, withRouter } from 'react-router-dom';
 
 const Div = styled.div`
-    background: #223767;
-    border-radius: 10px;
-    width: 500px;
-	padding 50px;
+	background: #223767;
+	border-radius: 10px;
+	width: 500px;
+	padding: 50px;
 	margin: 3rem;
 	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
-	box-shadow: 0 0 30px rgba(0,0,0,0.15);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 
 	h1 {
 		color: #527cc9;
@@ -45,10 +46,16 @@ const initialValues: FormValues = {
 	password: ''
 };
 
-const LoginTest: React.FC = () => {
+const LoginForm: React.FC = () => {
+	const dispatch = useDispatch();
+	let history = useHistory();
 	// values object automatically tracks input value state
 	const handleSubmit = (values: FormValues): void => {
-		userService.login(values);
+		let loginSuccess = userService.login(values);
+		if (loginSuccess) {
+			dispatch({ type: 'TOGGLE_USER_LOGIN', payload: true });
+			history.push('/');
+		}
 	};
 
 	return (
@@ -75,4 +82,4 @@ const LoginTest: React.FC = () => {
 	);
 };
 
-export default LoginTest;
+export default LoginForm;

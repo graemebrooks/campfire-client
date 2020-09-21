@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 // component imports
 import SignupForm from '../../Forms/SignupForm/SignupForm';
-import MovieSearch from '../../MovieSearch/movieSearch';
+
 
 // services
 
@@ -20,7 +20,6 @@ function HomePage() {
 		<Div>
 			<SignupForm />
 			<h1 className="title">Home Page</h1>
-			<MovieSearch />
 		</Div>
 	);
 }

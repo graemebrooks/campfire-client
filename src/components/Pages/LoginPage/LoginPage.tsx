@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // component imports
-import LoginTest from '../../Forms/loginTest/loginTest';
+import LoginForm from '../../Forms/LoginForm/LoginForm';
 
 const Div = styled.div`
 	display: flex;
@@ -19,7 +19,7 @@ const Div = styled.div`
 function LoginPage() {
 	return (
 		<Div>
-			<LoginTest />
+			<LoginForm />
 			<h1 className="title">Login Page</h1>
 		</Div>
 	);

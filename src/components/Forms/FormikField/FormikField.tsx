@@ -10,13 +10,13 @@ const Div = styled.div`
 		color: white;
 	}
 	label {
-		color: #527cc9;
+		color: #565959;
 	}
 	.MuiFormHelperText-root {
 		color: #f56200;
 	}
 	.MuiInput-input {
-		border-bottom: 2px solid #527cc9;
+		border-bottom: 2px solid #565959;
 	}
 `;
 

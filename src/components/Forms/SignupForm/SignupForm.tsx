@@ -8,34 +8,33 @@ import * as Yup from 'yup';
 import FormikField from '../FormikField/FormikField';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
-import { makeStyles, Theme } from '@material-ui/core/styles';
 
 // services
 import userService from '../../../services/security/userService';
 
 const Div = styled.div`
-    background: #223767;
-    border-radius: 10px;
+	background: #161717;
+	border-radius: 10px;
 	width: 500px;
 	margin: 3rem;
-    padding 50px;
+	padding: 50px;
 	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	box-shadow: 0 0 30px rgba(0,0,0,0.15);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 
 	h1 {
-		color: #527cc9;
+		color: #565959;
 		margin-right: auto;
 	}
-	
+
 	button {
 		margin: 0.5rem;
 	}
 
 	.feedback {
-		display: block; 
+		display: block;
 	}
 `;
 
