@@ -5,7 +5,7 @@ import userService from '../../services/security/userService';
 // component imports
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { UserState } from '../../userReducer';
+import { SystemState, TOGGLE_USER_LOGIN } from '../../redux/types';
 
 const Nav = styled.div`
 	background-color: #161717;
@@ -46,7 +46,7 @@ type navProps = {
 };
 
 function Navbar(navProps: navProps) {
-	const userLoggedIn = useSelector<UserState, UserState['userLoggedIn']>((state) => state.userLoggedIn);
+	const userLoggedIn = useSelector<SystemState, SystemState['loggedIn']>((state) => state.loggedIn);
 	const dispatch = useDispatch();
 	const logoutUser = () => {
 		userService.logout();

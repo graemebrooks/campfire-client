@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { TOGGLE_USER_LOGIN } from '../../../redux/types';
 
 // components
 import FormikField from '../FormikField/FormikField';

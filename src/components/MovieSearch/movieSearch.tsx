@@ -15,13 +15,14 @@ const Div = styled.div`
 		background-color: #161717;
 		height: 2.5rem;
 		padding: 0.5rem;
-		border-radius: 10px;
-
+		border-radius: 15px;
 		color: white;
 
 		&:focus {
 			background-color: #f5f5f5;
 			color: #000000;
+			outline: none;
+			box-shadow: 0 0 0 2pt #ea8f00;
 		}
 	}
 	p {

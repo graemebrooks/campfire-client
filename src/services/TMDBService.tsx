@@ -12,6 +12,26 @@ const search = async (query: string): Promise<any> => {
 	return result.data;
 };
 
+const getDirectorByMovie = async (movieId: string): Promise<any> => {
+	let result = await axios({
+		url: `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=d367945c5d4ae69f54ff775f0d01eb45`
+	});
+
+	let director = result.data.crew.find((crewMember: any) => crewMember.job == 'Director');
+
+	return director.name;
+};
+
+const getMovieById = async (movieId: string): Promise<any> => {
+	let result = await axios({
+		url: `https://api.themoviedb.org/3/movie/${movieId}?api_key=d367945c5d4ae69f54ff775f0d01eb45&language=en-US`
+	});
+
+	return result.data;
+};
+
 export default {
-	search
+	search,
+	getDirectorByMovie,
+	getMovieById
 };

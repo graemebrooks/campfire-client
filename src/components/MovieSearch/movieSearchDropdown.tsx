@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import emptyMovieImage from '../../assets/emptyMovie.png';
+import { useDispatch } from 'react-redux';
 
 // component imports
+import { Link } from 'react-router-dom';
 
 // services
 
@@ -35,6 +37,11 @@ const Dropdown = styled.div`
 	ul {
 		list-style-type: none;
 		padding: 0;
+
+		a {
+			color: inherit;
+			text-decoration: inherit;
+		}
 	}
 
 	.movieCard {
@@ -50,6 +57,7 @@ const Dropdown = styled.div`
 
 		h5 {
 			margin-right: auto;
+			text-align: left;
 		}
 
 		&:hover {
@@ -66,26 +74,39 @@ const Dropdown = styled.div`
 `;
 
 function MovieSearchDropdown(props: any) {
+	const dispatch = useDispatch();
+	const handleMovieSelection = (movieId: String): void => {
+		console.log(movieId);
+		dispatch({ type: 'SET_CURRENT_MOVIE', payload: movieId });
+	};
+
 	return (
 		<Dropdown className="dropdown">
 			<ul>
 				{props.movies.map((movie: any) => {
 					return (
-						<li className="movieCard">
-							<h5>
-								{movie.title} ({movie.release_date.substring(0, 4)})
-							</h5>
-							<img
-								alt="Movie Poster"
-								src={
-									movie.poster_path ? (
-										`http://image.tmdb.org/t/p/w185${movie.poster_path}`
-									) : (
-										emptyMovieImage
-									)
-								}
-							/>
-						</li>
+						<Link
+							to={`/movieDetails/${movie.id}`}
+							onClick={() => {
+								handleMovieSelection(movie.id);
+							}}
+						>
+							<li className="movieCard">
+								<h5>
+									{movie.title} {movie.release_date ? `(${movie.release_date.substring(0, 4)})` : ''}
+								</h5>
+								<img
+									alt="Movie Poster"
+									src={
+										movie.poster_path ? (
+											`http://image.tmdb.org/t/p/w185${movie.poster_path}`
+										) : (
+											emptyMovieImage
+										)
+									}
+								/>
+							</li>
+						</Link>
 					);
 				})}
 			</ul>
