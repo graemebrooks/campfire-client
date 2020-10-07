@@ -1,5 +1,6 @@
 import axios from 'axios';
 import tokenService from './tokenService';
+import { store } from '../../redux/store';
 
 const BASE_URL: string = 'http://localhost:8080/api/user/';
 
@@ -11,6 +12,9 @@ interface LoginValues {
 }
 
 const login = (creds: LoginValues): Boolean => {
+	const setCurrentUser = (userId: string): void => {
+		store.dispatch({ type: 'SET_CURRENT_USER', payload: userId });
+	};
 	axios
 		.post(`${BASE_URL}authenticate`, creds, {
 			headers: { 'content-type': 'application/json' }
@@ -21,6 +25,9 @@ const login = (creds: LoginValues): Boolean => {
 		.then(({ jwt }) => {
 			console.log(jwt);
 			tokenService.setToken(jwt);
+			let userId = getUser();
+			console.log(userId);
+			if (userId) setCurrentUser(userId);
 		})
 		.catch((error) => {
 			throw new Error('Bad Credentials!');
